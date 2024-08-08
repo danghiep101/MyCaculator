@@ -4,20 +4,13 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Switch
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mycaculator.R
 import com.example.mycaculator.databinding.ActivityMainBinding
 import com.example.mycaculator.viewmodel.CalculatorViewModel
 import com.google.android.gms.ads.AdError
-
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
@@ -34,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private var mInterstitialAd: InterstitialAd? = null
-    private final val tag = "MainActivity"
+    private val tag = "MainActivity"
     private lateinit var binding: ActivityMainBinding
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
