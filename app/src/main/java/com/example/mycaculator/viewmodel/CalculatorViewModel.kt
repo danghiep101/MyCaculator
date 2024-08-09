@@ -5,6 +5,10 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.example.mycaculator.data.model.CalculationHistory
+import com.example.mycaculator.data.model.CalculatorDatabase
+import kotlinx.coroutines.launch
 
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.text.DecimalFormat
@@ -19,9 +23,8 @@ class CalculatorViewModel(application: Application) : AndroidViewModel(applicati
 
     private val _textHistory = MutableLiveData<String>()
     val textHistory: LiveData<String> = _textHistory
-
-    private val _isDarkMode = MutableLiveData<Boolean>(true)
-    val isDarkMode: LiveData<Boolean> = _isDarkMode
+   private val database = CalculatorDatabase.getDatabase(application)
+    private val historyDao = database.calculationHistoryDao()
 
     init {
         _workingText.value = ""
@@ -62,9 +65,13 @@ class CalculatorViewModel(application: Application) : AndroidViewModel(applicati
 
     private fun equalAction() {
         try {
-            val result = _resultText.value
-            val workingText = _workingText.value
+            val result = _resultText.value?: return
+            val workingText = _workingText.value?: return
             _textHistory.value = "$workingText\n=$result"
+
+            viewModelScope.launch{
+                historyDao.insert(CalculationHistory(expression = workingText, result = result))
+            }
         } catch (e: Exception) {
             Log.d("CALCULATE", "Exception: ${e.message}")
         }
@@ -98,7 +105,5 @@ class CalculatorViewModel(application: Application) : AndroidViewModel(applicati
         return fixedExpression
     }
 
-    fun switchMode() {
-        _isDarkMode.value = _isDarkMode.value?.not()
-    }
+
 }

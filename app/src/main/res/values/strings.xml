@@ -23,4 +23,10 @@
     <string name="text_mutiplied">*</string>
     <string name="darkmode">Dark</string>
     <string name="text_light">Light</string>
+    <string name="text_calculation_history">Calculation History</string>
+
+    <string-array name="spiner_items">
+        <item>Calculation History</item>
+        <item>Settings</item>
+    </string-array>
 </resources>

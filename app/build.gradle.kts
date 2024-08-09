@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.devtool.ksp)
 }
 
 android {
@@ -39,6 +40,13 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler) // For Kotlin projects
+implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     implementation(libs.play.service.ads)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

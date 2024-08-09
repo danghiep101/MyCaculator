@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackground">@color/almost_black</item>
+
+
+    </style>
+    <style name="ButtonNumber">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/round_button</item>
+
+    </style>
+
+    <style name="ButtonOperation">
+        <item name="android:textColor">@color/cyan</item>
+        <item name="android:background">@drawable/round_button</item>
+
+    </style>
+
+    <style name="ButtonAc">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:background">@drawable/round_button</item>
+
+    </style>
+
+    <style name="Switch">
+        <item name="android:text">Dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/almost_black</item>
+    </style>
+
+
+    <style name="Text">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/almost_black</item>
+    </style>
+    <style name="TextHistory">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:background">@color/almost_black</item>
+    </style>
+
+</resources>
