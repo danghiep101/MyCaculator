@@ -426,7 +426,7 @@
                     android:layout_weight="1"
 
                     android:fontFamily="@font/font"
-                    android:onClick="equalAction"
+
                     android:text="@string/text_equal"
 
                     android:textColor="#0091EA"
